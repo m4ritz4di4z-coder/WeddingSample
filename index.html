@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maria & Daniel | Boda</title>
+  <style>
+    :root {
+      --ink: #26302b;
+      --muted: #5e6861;
+      --paper: #fffaf3;
+      --sage: #6f806b;
+      --rose: #c58a84;
+      --clay: #a76855;
+      --gold: #d5b16d;
+      --mist: #edf2ea;
+      --line: rgba(38, 48, 43, 0.16);
+      --shadow: 0 20px 60px rgba(38, 48, 43, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    a { color: inherit; }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 64px;
+      padding: 12px clamp(18px, 4vw, 54px);
+      border-bottom: 1px solid rgba(255, 250, 243, 0.2);
+      color: #fffaf3;
+      background: rgba(38, 48, 43, 0.86);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.24rem;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 2vw, 22px);
+      font-size: 0.86rem;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 250, 243, 0.82);
+    }
+
+    .nav-links a:hover { color: #fffaf3; }
+
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      background:
+        linear-gradient(90deg, rgba(38, 48, 43, 0.84) 0%, rgba(38, 48, 43, 0.62) 42%, rgba(38, 48, 43, 0.08) 100%),
+        url("5859016.jpg") center / cover;
+      color: #fffaf3;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 640px;
+      padding: clamp(44px, 8vw, 96px);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255, 250, 243, 0.78);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 620px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(4.2rem, 12vw, 8rem);
+      line-height: 0.84;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .amp {
+      display: block;
+      color: #f1c7c1;
+      font-size: 0.58em;
+      font-style: italic;
+    }
+
+    .hero-copy p:not(.eyebrow) {
+      max-width: 540px;
+      margin: 26px 0 0;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+      color: rgba(255, 250, 243, 0.86);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .button.primary {
+      color: var(--ink);
+      background: #fffaf3;
+    }
+
+    .button.secondary {
+      color: #fffaf3;
+      border-color: rgba(255, 250, 243, 0.55);
+      background: rgba(255, 250, 243, 0.08);
+    }
+
+    .hero-side {
+      display: flex;
+      align-items: end;
+      padding: clamp(28px, 5vw, 58px);
+    }
+
+    .countdown {
+      width: min(420px, 100%);
+      padding: 22px;
+      border: 1px solid rgba(255, 250, 243, 0.3);
+      border-radius: 8px;
+      background: rgba(38, 48, 43, 0.58);
+      backdrop-filter: blur(10px);
+    }
+
+    .countdown span {
+      display: block;
+      color: rgba(255, 250, 243, 0.7);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .countdown strong {
+      display: block;
+      margin-top: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 400;
+    }
+
+    section {
+      padding: clamp(48px, 7vw, 86px) clamp(18px, 5vw, 64px);
+    }
+
+    .section-inner {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      margin: 0 0 28px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: -12px 0 30px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .event-card,
+    .gift-card,
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdfa;
+      box-shadow: 0 12px 34px rgba(38, 48, 43, 0.06);
+    }
+
+    .event-card {
+      display: grid;
+      gap: 14px;
+      padding: 24px;
+    }
+
+    .event-card h3,
+    .gift-card h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.65rem;
+      font-weight: 400;
+    }
+
+    .event-card p,
+    .gift-card p,
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .meta {
+      display: grid;
+      gap: 8px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .schedule {
+      background: var(--mist);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      max-width: 760px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(38, 48, 43, 0.14);
+    }
+
+    .timeline-item time {
+      color: var(--clay);
+      font-weight: 700;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 5px;
+      font-size: 1.05rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .rsvp-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .rsvp-note {
+      padding: 26px;
+      border-left: 4px solid var(--rose);
+      background: #fbf1ed;
+    }
+
+    .rsvp-note p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdfa;
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid rgba(38, 48, 43, 0.2);
+      border-radius: 8px;
+      font: inherit;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    form .button {
+      width: 100%;
+      min-height: 48px;
+      color: #fffaf3;
+      background: var(--ink);
+    }
+
+    .form-status {
+      min-height: 22px;
+      margin: 0;
+      color: var(--sage);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .dress-grid,
+    .gift-grid,
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .dress-swatch {
+      min-height: 180px;
+      display: flex;
+      align-items: end;
+      padding: 18px;
+      border-radius: 8px;
+      color: #fffaf3;
+      font-weight: 700;
+    }
+
+    .dress-swatch:nth-child(1) { background: #6f806b; }
+    .dress-swatch:nth-child(2) { background: #c58a84; }
+    .dress-swatch:nth-child(3) { background: #a76855; }
+
+    .gift-card,
+    .faq-item {
+      padding: 22px;
+    }
+
+    .gift-card .button {
+      margin-top: 18px;
+      color: #fffaf3;
+      background: var(--sage);
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    footer {
+      padding: 34px 18px;
+      text-align: center;
+      color: rgba(255, 250, 243, 0.72);
+      background: var(--ink);
+    }
+
+    footer strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fffaf3;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+    }
+
+    @media (max-width: 850px) {
+      .site-nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 3px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: 560px;
+        padding-bottom: 24px;
+      }
+
+      .hero-side {
+        padding-top: 0;
+      }
+
+      .event-grid,
+      .rsvp-layout,
+      .dress-grid,
+      .gift-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body { background: #fffaf3; }
+      .hero-copy { min-height: 500px; }
+      .hero-actions { flex-direction: column; }
+      .button { width: 100%; }
+      .timeline-item { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Secciones del sitio">
+    <div class="brand">Maria & Daniel</div>
+    <div class="nav-links">
+      <a href="#evento">Evento</a>
+      <a href="#itinerario">Itinerario</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#vestuario">Dress code</a>
+      <a href="#regalos">Regalos</a>
+      <a href="#faq">Dudas</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Nos casamos</p>
+      <h1>Maria <span class="amp">&amp;</span> Daniel</h1>
+      <p>Queremos celebrar este dia con las personas que mas queremos. Aqui encuentras todos los detalles para acompanarnos.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#rsvp">Confirmar asistencia</a>
+        <a class="button secondary" href="#evento">Ver ubicacion</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="countdown">
+        <span>Reserva la fecha</span>
+        <strong>Sabado, 12 de octubre · 5:00 p. m.</strong>
+      </div>
+    </div>
+  </header>
+
+  <section id="evento">
+    <div class="section-inner">
+      <h2 class="section-title">Ceremonia y celebracion</h2>
+      <p class="lead">La ceremonia y la fiesta seran en el mismo lugar para que todos podamos disfrutar la tarde con calma.</p>
+      <div class="event-grid">
+        <article class="event-card">
+          <h3>Ceremonia</h3>
+          <div class="meta">
+            <span>5:00 p. m.</span>
+            <span>Jardin Las Flores, Bogota</span>
+          </div>
+          <p>Llega con unos minutos de anticipacion para encontrar tu lugar y compartir el inicio de este momento.</p>
+          <a class="button secondary" href="https://maps.google.com/?q=Jardin%20Las%20Flores%20Bogota" target="_blank" rel="noreferrer">Abrir mapa</a>
+        </article>
+        <article class="event-card">
+          <h3>Recepcion</h3>
+          <div class="meta">
+            <span>6:30 p. m.</span>
+            <span>Salon principal</span>
+          </div>
+          <p>Despues de la ceremonia tendremos cena, brindis, musica y una noche para celebrar juntos.</p>
+          <a class="button secondary" href="#itinerario">Ver itinerario</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="itinerario" class="schedule">
+    <div class="section-inner">
+      <h2 class="section-title">Itinerario</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <time>4:30 p. m.</time>
+          <div>
+            <h3>Llegada de invitados</h3>
+            <p>Recepcion, saludo y acomodacion.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time>5:00 p. m.</time>
+          <div>
+            <h3>Ceremonia</h3>
+            <p>El momento principal de la tarde.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time>6:00 p. m.</time>
+          <div>
+            <h3>Coctel</h3>
+            <p>Fotos, bebidas y pequenos bocados.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time>7:30 p. m.</time>
+          <div>
+            <h3>Cena y brindis</h3>
+            <p>Compartimos la mesa y las palabras de celebracion.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time>9:00 p. m.</time>
+          <div>
+            <h3>Fiesta</h3>
+            <p>Musica, baile y alegria hasta el cierre.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="section-inner rsvp-layout">
+      <div>
+        <h2 class="section-title">Confirma tu asistencia</h2>
+        <div class="rsvp-note">
+          <p>Por favor confirma antes del 15 de septiembre. Si vienes con acompanante o tienes alguna restriccion alimentaria, cuentanos en el formulario.</p>
+        </div>
+      </div>
+      <form id="rsvpForm">
+        <label>
+          Nombre completo
+          <input id="guestName" name="guestName" autocomplete="name" required>
+        </label>
+        <div class="form-row">
+          <label>
+            Asistencia
+            <select id="attendance" name="attendance" required>
+              <option value="">Seleccionar</option>
+              <option>Si, asistire</option>
+              <option>No podre asistir</option>
+            </select>
+          </label>
+          <label>
+            Numero de personas
+            <input id="guests" name="guests" type="number" min="1" max="6" value="1" required>
+          </label>
+        </div>
+        <label>
+          Restricciones o mensaje
+          <textarea id="message" name="message" placeholder="Alergias, dieta especial o un mensaje para los novios"></textarea>
+        </label>
+        <button class="button" type="submit">Enviar por WhatsApp</button>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="vestuario" class="schedule">
+    <div class="section-inner">
+      <h2 class="section-title">Dress code</h2>
+      <p class="lead">Formal de tarde. Los tonos sugeridos ayudan a que las fotos queden armoniosas; no es necesario vestir exactamente estos colores.</p>
+      <div class="dress-grid" aria-label="Paleta sugerida">
+        <div class="dress-swatch">Verde salvia</div>
+        <div class="dress-swatch">Rosa empolvado</div>
+        <div class="dress-swatch">Terracota suave</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="regalos">
+    <div class="section-inner">
+      <h2 class="section-title">Mesa de regalos</h2>
+      <p class="lead">Tu presencia es nuestro regalo mas importante. Si quieres tener un detalle adicional, estas opciones nos ayudan a empezar esta nueva etapa.</p>
+      <div class="gift-grid">
+        <article class="gift-card">
+          <h3>Mesa virtual</h3>
+          <p>Enlace a la lista de regalos elegida por la pareja.</p>
+          <a class="button" href="#" aria-disabled="true">Agregar enlace</a>
+        </article>
+        <article class="gift-card">
+          <h3>Lluvia de sobres</h3>
+          <p>Tendremos un espacio discreto en la recepcion.</p>
+          <a class="button" href="#evento">Ver lugar</a>
+        </article>
+        <article class="gift-card">
+          <h3>Viaje de novios</h3>
+          <p>Tambien puedes contribuir a nuestra luna de miel.</p>
+          <a class="button" href="#" aria-disabled="true">Agregar cuenta</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="schedule">
+    <div class="section-inner">
+      <h2 class="section-title">Dudas frecuentes</h2>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>¿Puedo llevar acompanante?</h3>
+          <p>Confirma segun el numero de cupos indicado en tu invitacion.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Habra parqueadero?</h3>
+          <p>Si, el lugar cuenta con parqueadero para invitados.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Pueden asistir ninos?</h3>
+          <p>Queremos una celebracion para adultos, salvo los ninos de la familia cercana.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿A quien contacto?</h3>
+          <p>Escribenos por WhatsApp si necesitas resolver algo antes del evento.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>Maria & Daniel</strong>
+    Gracias por ser parte de nuestra historia.
+  </footer>
+
+  <script>
+    const whatsappNumber = "573001234567";
+    const form = document.querySelector("#rsvpForm");
+    const status = document.querySelector("#formStatus");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = document.querySelector("#guestName").value.trim();
+      const attendance = document.querySelector("#attendance").value;
+      const guests = document.querySelector("#guests").value;
+      const message = document.querySelector("#message").value.trim();
+
+      if (!name || !attendance || !guests) {
+        status.textContent = "Completa los campos principales para enviar tu confirmacion.";
+        return;
+      }
+
+      const text = [
+        "Hola, quiero confirmar mi asistencia a la boda de Maria y Daniel.",
+        `Nombre: ${name}`,
+        `Asistencia: ${attendance}`,
+        `Personas: ${guests}`,
+        message ? `Mensaje: ${message}` : ""
+      ].filter(Boolean).join("\\n");
+
+      status.textContent = "Se abrira WhatsApp con tu confirmacion lista para enviar.";
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    });
+  </script>
+</body>
+</html>
