@@ -206,6 +206,37 @@
       text-transform: none;
     }
 
+    .countdown-live {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 250, 243, 0.22);
+    }
+
+    .countdown-live div {
+      min-width: 0;
+    }
+
+    .countdown-live b {
+      display: block;
+      color: #fffaf3;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.35rem, 2.4vw, 2rem);
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .countdown-live small {
+      display: block;
+      margin-top: 6px;
+      color: rgba(255, 250, 243, 0.72);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
     section {
       padding: clamp(48px, 7vw, 86px) clamp(18px, 5vw, 64px);
       scroll-margin-top: 92px;
@@ -687,6 +718,12 @@
       <div class="countdown">
         <span>Reserva la fecha</span>
         <strong><span class="countdown-date">25 de<br>julio</span><span class="countdown-time">4:00 p. m.</span></strong>
+        <div class="countdown-live" id="weddingCountdown" aria-label="Cuenta regresiva para la boda">
+          <div><b id="countDays">--</b><small>Días</small></div>
+          <div><b id="countHours">--</b><small>Horas</small></div>
+          <div><b id="countMinutes">--</b><small>Min</small></div>
+          <div><b id="countSeconds">--</b><small>Seg</small></div>
+        </div>
       </div>
     </div>
   </header>
@@ -919,6 +956,37 @@
     const uploadPhotos = document.querySelector("#uploadPhotos");
     const photoStatus = document.querySelector("#photoStatus");
     const photoGallery = document.querySelector("#photoGallery");
+    const weddingDate = new Date("2026-07-25T16:00:00-05:00");
+    const countdownFields = {
+      days: document.querySelector("#countDays"),
+      hours: document.querySelector("#countHours"),
+      minutes: document.querySelector("#countMinutes"),
+      seconds: document.querySelector("#countSeconds")
+    };
+
+    const updateCountdown = () => {
+      if (!countdownFields.days) return;
+
+      const diff = weddingDate.getTime() - Date.now();
+      if (diff <= 0) {
+        countdownFields.days.textContent = "Hoy";
+        countdownFields.hours.textContent = "00";
+        countdownFields.minutes.textContent = "00";
+        countdownFields.seconds.textContent = "00";
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      countdownFields.days.textContent = String(days);
+      countdownFields.hours.textContent = String(hours).padStart(2, "0");
+      countdownFields.minutes.textContent = String(minutes).padStart(2, "0");
+      countdownFields.seconds.textContent = String(seconds).padStart(2, "0");
+    };
 
     const clearGalleryPlaceholders = () => {
       photoGallery.querySelectorAll(".photo-placeholder").forEach((item) => item.remove());
@@ -1021,6 +1089,8 @@
     }
 
     loadApprovedGallery();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
