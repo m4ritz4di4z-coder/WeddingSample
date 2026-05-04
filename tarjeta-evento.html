@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarjeta de boda | Paula Alejandra & Necton Lincon</title>
+  <style>
+    :root {
+      --ink: #26302b;
+      --muted: #5f6962;
+      --paper: #fffaf3;
+      --rose: #c58a84;
+      --gold: #d5b16d;
+      --sage: #6f806b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background: #eef2eb;
+    }
+
+    .card {
+      width: min(760px, calc((100vh - 48px) * 5 / 7), 100%);
+      min-height: min(940px, calc(100vh - 48px));
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      border-radius: 8px;
+      box-shadow: 0 28px 80px rgba(38, 48, 43, 0.24);
+      background:
+        linear-gradient(90deg, rgba(38, 48, 43, 0.84) 0%, rgba(38, 48, 43, 0.58) 48%, rgba(255, 250, 243, 0.24) 100%),
+        url("5859016.jpg") center / cover;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(255, 250, 243, 0.55);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .main {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(28px, 5vw, 60px);
+      color: var(--paper);
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 250, 243, 0.78);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 480px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.1rem, 8.4vw, 6.2rem);
+      line-height: 0.86;
+      font-weight: 400;
+    }
+
+    .amp {
+      display: block;
+      margin: 8px 0 2px;
+      color: #f1c7c1;
+      font-size: 0.54em;
+      font-style: italic;
+    }
+
+    .date {
+      width: fit-content;
+      margin-top: 24px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      background: rgba(38, 48, 43, 0.62);
+      border: 1px solid rgba(255, 250, 243, 0.24);
+    }
+
+    .invitation-text {
+      max-width: 430px;
+      margin: 24px 0 0;
+      color: rgba(255, 250, 243, 0.88);
+      font-size: clamp(1rem, 2.4vw, 1.2rem);
+      line-height: 1.65;
+    }
+
+    .date span {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255, 250, 243, 0.76);
+    }
+
+    .date strong {
+      display: block;
+      margin-top: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 4.2vw, 2.7rem);
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .details {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 20px clamp(26px, 5vw, 48px);
+      background: rgba(255, 250, 243, 0.94);
+      border-top: 1px solid rgba(38, 48, 43, 0.14);
+    }
+
+    .details h2 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 4vw, 2.35rem);
+      font-weight: 400;
+    }
+
+    .details p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 6px;
+      margin-top: 14px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .qr {
+      width: 132px;
+      padding: 8px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid rgba(38, 48, 43, 0.14);
+    }
+
+    .qr img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .qr span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-align: center;
+    }
+
+    @media (max-width: 620px) {
+      body { padding: 12px; }
+
+      .card {
+        aspect-ratio: auto;
+        min-height: 92vh;
+      }
+
+      .details {
+        grid-template-columns: 1fr;
+      }
+
+      .qr {
+        width: 170px;
+      }
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #fff;
+      }
+
+      .card {
+        width: 5in;
+        height: 7in;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="card" aria-label="Tarjeta de boda de Paula Alejandra y Necton Lincon">
+    <section class="main">
+      <p class="kicker">Nos casamos</p>
+      <h1>Paula Alejandra <span class="amp">&amp;</span> Necton Lincon</h1>
+      <p class="invitation-text">Tenemos el honor de invitarte a celebrar nuestra unión.</p>
+      <div class="date">
+        <span>Reserva la fecha</span>
+        <strong>25 de julio<br>4:00 p. m.</strong>
+      </div>
+    </section>
+
+    <section class="details">
+      <div>
+        <h2>Ceremonia y recepción</h2>
+        <p>Iglesia Sagrada Familia</p>
+        <p>Escuela de Postgrados de la Policía Nacional</p>
+        <p>Avenida Boyacá # 142 A - 55</p>
+        <div class="mini-list">
+          <span>Confirmar asistencia hasta el 11 de junio</span>
+          <span>Mujeres: Gala · Hombres: Corbatín</span>
+          <span>Solo adultos · Lluvia de sobres</span>
+        </div>
+      </div>
+
+      <div class="qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=https%3A%2F%2Fm4ritz4di4z-coder.github.io%2FWeddingSample%2F" alt="QR del sitio web de la boda">
+        <span>Sitio web</span>
+      </div>
+    </section>
+  </article>
+</body>
+</html>
