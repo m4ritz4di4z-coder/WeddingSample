@@ -920,6 +920,44 @@
     const photoStatus = document.querySelector("#photoStatus");
     const photoGallery = document.querySelector("#photoGallery");
 
+    const clearGalleryPlaceholders = () => {
+      photoGallery.querySelectorAll(".photo-placeholder").forEach((item) => item.remove());
+    };
+
+    const addPhotoToGallery = (url, prepend = false) => {
+      const image = document.createElement("img");
+      image.src = url;
+      image.alt = "Foto de la boda";
+      image.loading = "lazy";
+
+      clearGalleryPlaceholders();
+
+      if (prepend) {
+        photoGallery.prepend(image);
+      } else {
+        photoGallery.append(image);
+      }
+    };
+
+    const loadApprovedGallery = async () => {
+      if (!photoGallery) return;
+
+      try {
+        const response = await fetch("gallery.json", { cache: "no-store" });
+        if (!response.ok) return;
+
+        const photos = await response.json();
+        if (!Array.isArray(photos) || photos.length === 0) return;
+
+        photos
+          .map((item) => typeof item === "string" ? item : item.url)
+          .filter(Boolean)
+          .forEach((url) => addPhotoToGallery(url));
+      } catch (error) {
+        photoStatus.textContent = "La galería aprobada se cargará cuando el sitio esté publicado.";
+      }
+    };
+
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const name = document.querySelector("#guestName").value.trim();
@@ -973,12 +1011,7 @@
           }
 
           if (result && result.event === "success") {
-            const image = document.createElement("img");
-            image.src = result.info.secure_url;
-            image.alt = "Foto subida por un invitado";
-
-            photoGallery.querySelectorAll(".photo-placeholder").forEach((item) => item.remove());
-            photoGallery.prepend(image);
+            addPhotoToGallery(result.info.secure_url, true);
             photoStatus.textContent = "Foto subida correctamente. Gracias por compartir este recuerdo.";
           }
         });
@@ -986,6 +1019,8 @@
         widget.open();
       });
     }
+
+    loadApprovedGallery();
   </script>
 </body>
 </html>
