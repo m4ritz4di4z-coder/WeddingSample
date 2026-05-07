@@ -284,6 +284,85 @@
       padding: 24px;
     }
 
+    .couple-moment {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1fr);
+      gap: clamp(18px, 4vw, 34px);
+      align-items: center;
+      margin-top: 28px;
+      padding: clamp(18px, 4vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #fffdfa 0%, var(--mist) 100%);
+      box-shadow: 0 12px 34px rgba(43, 24, 56, 0.08);
+    }
+
+    .couple-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .couple-frame {
+      position: relative;
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--mist);
+    }
+
+    .couple-frame,
+    .date-tile {
+      aspect-ratio: 1 / 1;
+    }
+
+    .couple-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(1) contrast(1.05);
+    }
+
+    .date-tile {
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      border: 1px solid rgba(43, 24, 56, 0.12);
+      border-radius: 8px;
+      color: var(--sage);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 5vw, 4.4rem);
+      line-height: 1;
+      font-weight: 400;
+      background: rgba(242, 234, 247, 0.72);
+    }
+
+    .date-tile.word {
+      font-size: clamp(1.8rem, 4vw, 3.7rem);
+    }
+
+    .couple-moment p {
+      margin: 0;
+      max-width: 520px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      line-height: 1.75;
+    }
+
+    .couple-moment strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1;
+      font-weight: 400;
+    }
+
     .event-card.map-card {
       grid-column: 1 / -1;
     }
@@ -671,6 +750,7 @@
       .event-grid,
       .rsvp-layout,
       .photo-layout,
+      .couple-moment,
       .dress-grid,
       .gift-grid,
       .faq-grid {
@@ -695,6 +775,14 @@
 
       .map-qr {
         grid-template-columns: 1fr;
+      }
+
+      .couple-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .date-tile {
+        min-height: 0;
       }
     }
 
@@ -772,6 +860,23 @@
           </div>
         </article>
       </div>
+      <article class="couple-moment">
+        <div class="couple-gallery" aria-label="Fotos de Paula Alejandra y Necton Lincon">
+          <figure class="couple-frame">
+            <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9787.jpeg" alt="Paula Alejandra y Necton Lincon">
+          </figure>
+          <div class="date-tile">25</div>
+          <div class="date-tile word">Julio</div>
+          <figure class="couple-frame">
+            <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9758.jpeg" alt="Paula Alejandra y Necton Lincon">
+          </figure>
+          <figure class="couple-frame">
+            <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9747.jpeg" alt="Paula Alejandra y Necton Lincon">
+          </figure>
+          <div class="date-tile">2026</div>
+        </div>
+        <p><strong>Paula Alejandra &amp; Necton Lincon</strong>Queremos celebrar este día con las personas que más queremos. Gracias por acompañarnos en nuestra ceremonia y recepción.</p>
+      </article>
     </div>
   </section>
 
