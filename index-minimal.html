@@ -306,6 +306,7 @@
     }
 
     .couple-moment {
+      position: relative;
       display: grid;
       grid-template-columns: 1fr;
       gap: clamp(18px, 4vw, 34px);
@@ -316,6 +317,24 @@
       border-radius: 8px;
       background: linear-gradient(135deg, #fffdfa 0%, var(--mist) 100%);
       box-shadow: 0 12px 34px rgba(53, 32, 22, 0.08);
+    }
+
+    .couple-moment::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border-radius: 8px;
+      pointer-events: none;
+      background:
+        url("floral-hero-gd.jpg") center top / 100% auto no-repeat,
+        url("floral-hero-gd.jpg") center bottom / 100% auto no-repeat;
+      opacity: 0.18;
+    }
+
+    .couple-moment > * {
+      position: relative;
+      z-index: 1;
     }
 
     .couple-gallery {
@@ -367,7 +386,7 @@
       z-index: 1;
       color: rgba(255, 218, 185, 0.96);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-size: clamp(3.5rem, 7vw, 6.8rem);
       line-height: 0.85;
       font-weight: 400;
       text-shadow: 0 8px 24px rgba(53, 32, 22, 0.45);
