@@ -111,7 +111,7 @@
 
     .eyebrow {
       margin: 0 0 18px;
-      font-size: 0.8rem;
+      font-size: clamp(1.05rem, 2.2vw, 1.55rem);
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: rgba(255, 250, 243, 0.78);
@@ -679,6 +679,23 @@
       padding: 22px;
     }
 
+    .whatsapp-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 8px;
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .whatsapp-contact svg {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      color: #25d366;
+    }
+
     .photo-section {
       background: #fffdfa;
     }
@@ -865,7 +882,7 @@
 
   <header class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Nos casamos</p>
+      <p class="eyebrow">¡Nos casamos!</p>
       <h1>Paula Alejandra <span class="amp">&amp;</span> Necton Lincon</h1>
       <p>Nos encantaría celebrar este día contigo. Aquí encontrarás la información esencial de la boda.</p>
       <div class="hero-actions">
@@ -953,14 +970,14 @@
           </div>
         </article>
         <article class="timeline-item">
-          <time>6:30 p. m.</time>
+          <time>6:00 p. m.</time>
           <div>
             <h3>Cóctel</h3>
             <p>Fotos, bebidas y pequeños bocados.</p>
           </div>
         </article>
         <article class="timeline-item">
-          <time>7:30 p. m.</time>
+          <time>7:00 p. m.</time>
           <div>
             <h3>Cena y brindis</h3>
             <p>Compartimos la mesa y las palabras de celebración.</p>
@@ -995,8 +1012,8 @@
             Asistencia
             <select id="attendance" name="attendance" required>
               <option value="">Seleccionar</option>
-            <option>Sí, asistiré</option>
-            <option>No podré asistir</option>
+              <option>Sí, asistiré</option>
+              <option>No podré asistir</option>
             </select>
           </label>
           <label>
@@ -1004,9 +1021,19 @@
             <input id="guests" name="guests" type="number" min="1" max="6" value="1" required>
           </label>
         </div>
+        <div class="form-row">
+          <label>
+            Documento de identidad
+            <input id="documentId" name="documentId" inputmode="numeric" autocomplete="off" required>
+          </label>
+          <label>
+            Placa del vehículo
+            <input id="vehiclePlate" name="vehiclePlate" autocomplete="off" placeholder="Solo si llevan vehículo">
+          </label>
+        </div>
         <label>
           Restricciones o mensaje
-          <textarea id="message" name="message" placeholder="Alergias, dieta especial o un mensaje para los novios"></textarea>
+          <textarea id="message" name="message" placeholder="Confirma el nombre y documento de identidad de los acompañantes. Indica si tienes alergias, dieta especial."></textarea>
         </label>
         <button class="button" type="submit">Enviar por WhatsApp</button>
         <p class="form-status" id="formStatus" aria-live="polite"></p>
@@ -1026,16 +1053,15 @@
         <article class="dress-card">
           <span>Hombres</span>
           <strong>Smoking</strong>
-          <small>Uniforme de Gala No. 1</small>
         </article>
         <article class="reserved-colors">
           <div>
             <h3>Colores reservados</h3>
-            <p>Agradecemos evitar blanco y verde pistacho para reservarlos a los novios y detalles de la celebración.</p>
+            <p>Agradecemos evitar blanco y verde para reservarlos a los novios y detalles de la celebración.</p>
           </div>
-          <div class="color-chips" aria-label="Blanco y verde pistacho">
+          <div class="color-chips" aria-label="Blanco y verde">
             <span class="color-chip white" title="Blanco"></span>
-            <span class="color-chip pistachio" title="Verde pistacho"></span>
+            <span class="color-chip pistachio" title="Verde"></span>
           </div>
         </article>
       </div>
@@ -1073,7 +1099,7 @@
         </article>
         <article class="gift-card">
           <h3>Alimentación</h3>
-          <p>Por favor informa en el RSVP si sufres de alergias o tienes alguna restricción alimentaria.</p>
+          <p>Por favor informa si sufres de alergias o tienes alguna restricción alimentaria.</p>
           <a class="button" href="#rsvp">Informar alergias</a>
         </article>
         <article class="gift-card">
@@ -1104,6 +1130,17 @@
         <article class="faq-item">
           <h3>¿Hasta cuándo confirmo?</h3>
           <p>Por favor confirma tu asistencia hasta el 11 de junio.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Otras dudas?</h3>
+          <p>
+            <a class="whatsapp-contact" href="https://wa.me/573107600082" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M16.02 3.2c-7.02 0-12.72 5.63-12.72 12.57 0 2.38.68 4.62 1.86 6.53L3.2 28.8l6.7-1.91a12.84 12.84 0 0 0 6.12 1.55c7.02 0 12.72-5.63 12.72-12.57S23.04 3.2 16.02 3.2Zm0 22.96c-2.03 0-3.91-.58-5.51-1.58l-.39-.24-3.97 1.13 1.16-3.82-.26-.4a10.14 10.14 0 0 1-1.48-5.48c0-5.68 4.69-10.3 10.45-10.3s10.45 4.62 10.45 10.3-4.69 10.39-10.45 10.39Zm5.73-7.71c-.31-.15-1.84-.9-2.13-1-.29-.11-.5-.15-.71.15-.21.31-.82 1-.99 1.2-.18.21-.36.23-.67.08-.31-.15-1.31-.48-2.5-1.52-.92-.81-1.55-1.82-1.73-2.13-.18-.31-.02-.48.13-.63.14-.14.31-.36.47-.54.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.54-.08-.15-.71-1.69-.98-2.31-.26-.6-.52-.52-.71-.53h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.6s1.13 3.02 1.29 3.23c.16.21 2.23 3.37 5.4 4.72.76.33 1.35.52 1.81.66.76.24 1.45.21 2 .13.61-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.6-.36Z"/>
+              </svg>
+              <span>¡Escríbenos con confianza! 3107600082</span>
+            </a>
+          </p>
         </article>
       </div>
     </div>
@@ -1199,9 +1236,11 @@
       const name = document.querySelector("#guestName").value.trim();
       const attendance = document.querySelector("#attendance").value;
       const guests = document.querySelector("#guests").value;
+      const documentId = document.querySelector("#documentId").value.trim();
+      const vehiclePlate = document.querySelector("#vehiclePlate").value.trim();
       const message = document.querySelector("#message").value.trim();
 
-      if (!name || !attendance || !guests) {
+      if (!name || !attendance || !guests || !documentId) {
         status.textContent = "Completa los campos principales para enviar tu confirmación.";
         return;
       }
@@ -1211,6 +1250,8 @@
         `Nombre: ${name}`,
         `Asistencia: ${attendance}`,
         `Personas: ${guests}`,
+        `Documento de identidad: ${documentId}`,
+        vehiclePlate ? `Placa del vehículo: ${vehiclePlate.toUpperCase()}` : "",
         message ? `Mensaje: ${message}` : ""
       ].filter(Boolean).join("\\n");
 
