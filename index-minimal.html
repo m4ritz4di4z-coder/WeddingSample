@@ -173,6 +173,25 @@
       background: rgba(255, 250, 243, 0.08);
     }
 
+    .button svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      flex: 0 0 auto;
+    }
+
+    .map-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .map-title svg {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+    }
+
     .hero-side {
       display: flex;
       align-items: end;
@@ -465,6 +484,18 @@
       display: block;
       color: var(--muted);
       line-height: 1.5;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--clay);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .map-link:hover {
+      text-decoration: underline;
     }
 
     .meta {
@@ -893,7 +924,7 @@
     <div class="hero-side">
       <div class="countdown">
         <span>Reserva la fecha</span>
-        <strong><span class="countdown-date">25 de<br>julio</span><span class="countdown-time">4:00 p. m.</span></strong>
+        <strong><span class="countdown-date">25 de<br>julio</span><span class="countdown-time">4:30 p. m.</span></strong>
         <div class="countdown-live" id="weddingCountdown" aria-label="Cuenta regresiva para la boda">
           <div><b id="countDays">--</b><small>Días</small></div>
           <div><b id="countHours">--</b><small>Horas</small></div>
@@ -907,26 +938,36 @@
   <section id="evento">
     <div class="section-inner">
       <h2 class="section-title">Ceremonia y recepción</h2>
-      <p class="lead">25 de julio · 4:00 p. m. · Iglesia Sagrada Familia. Recepción en la Escuela de Postgrados de la Policía Nacional - Cabaña de Generales.</p>
+      <p class="lead">25 de julio · 4:30 p. m. · Parroquia La Sagrada Familia. Recepción en la Escuela de Postgrados de la Policía Nacional - Cabaña de Generales.</p>
       <div class="event-grid">
         <article class="event-card map-card">
           <h3>Detalles</h3>
           <div class="meta">
-            <span>4:00 p. m.</span>
-            <span>Iglesia Sagrada Familia</span>
+            <span>4:30 p. m.</span>
+            <span>Parroquia La Sagrada Familia</span>
             <span>Recepción: Escuela de Postgrados de la Policía Nacional - Cabaña de Generales</span>
             <span>Avenida Boyacá # 142 A - 55</span>
           </div>
           <p>Te recomendamos llegar con algunos minutos de anticipación.</p>
-          <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Escuela%20de%20Postgrados%20de%20la%20Policia%20Nacional%2C%20Avenida%20Boyaca%20%23%20142%20A%20-%2055" target="_blank" rel="noreferrer">Abrir mapa</a>
+          <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Escuela%20de%20Postgrados%20de%20la%20Polic%C3%ADa%20Nacional%20-%20Caba%C3%B1a%20de%20Generales%2C%20Avenida%20Boyac%C3%A1%20%23%20142%20A%20-%2055%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noreferrer">Abrir mapa</a>
         </article>
         <article class="event-card">
-          <h3>Mapa de llegada</h3>
+          <h3 class="map-title">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="#4285F4" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/>
+              <path fill="#34A853" d="M5.7 11.93C7.29 16.64 12 22 12 22s2.14-2.37 4.05-5.35L5.7 11.93Z"/>
+              <path fill="#FBBC04" d="M18.36 6.08 13.4 11.04l2.65 5.61C17.69 14.1 19 11.18 19 9c0-1.05-.23-2.04-.64-2.92Z"/>
+              <path fill="#EA4335" d="M12 2C9.38 2 7.09 3.44 5.89 5.58l7.51 5.46 4.96-4.96C17.24 3.67 14.8 2 12 2Z"/>
+              <circle cx="12" cy="9" r="2.6" fill="#fff"/>
+            </svg>
+            Mapa de llegada
+          </h3>
           <div class="map-qr">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DEscuela%2520de%2520Postgrados%2520de%2520la%2520Policia%2520Nacional%252C%2520Avenida%2520Boyaca%2520%2523%2520142%2520A%2520-%252055" alt="QR del mapa de llegada">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DEscuela%2520de%2520Postgrados%2520de%2520la%2520Polic%25C3%25ADa%2520Nacional%2520-%2520Caba%25C3%25B1a%2520de%2520Generales%252C%2520Avenida%2520Boyac%25C3%25A1%2520%2523%2520142%2520A%2520-%252055%252C%2520Bogot%25C3%25A1%252C%2520Colombia" alt="QR del mapa de llegada">
             <div>
               <strong>Escanea para abrir la ubicación</strong>
-              <span>Escuela de Postgrados de la Policía Nacional, Avenida Boyacá # 142 A - 55.</span>
+              <span>Escuela de Postgrados de la Policía Nacional - Cabaña de Generales, Avenida Boyacá # 142 A - 55.</span>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Escuela%20de%20Postgrados%20de%20la%20Polic%C3%ADa%20Nacional%20-%20Caba%C3%B1a%20de%20Generales%2C%20Avenida%20Boyac%C3%A1%20%23%20142%20A%20-%2055%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noreferrer">Abrir dirección en Google Maps</a>
             </div>
           </div>
         </article>
@@ -966,7 +1007,7 @@
           <time>5:00 p. m.</time>
           <div>
             <h3>Ceremonia</h3>
-            <p>Iglesia Sagrada Familia.</p>
+            <p>Parroquia La Sagrada Familia.</p>
           </div>
         </article>
         <article class="timeline-item">
@@ -999,7 +1040,7 @@
       <div>
         <h2 class="section-title">Confirma tu asistencia</h2>
         <div class="rsvp-note">
-          <p>Confirma antes del 11 de junio. Si tienes alergias o restricciones alimentarias, indícalo en el mensaje.</p>
+          <p>Confirma antes del 11 de junio. Si llevas acompañantes, indícalos en el mensaje.</p>
         </div>
       </div>
       <form id="rsvpForm">
@@ -1032,8 +1073,8 @@
           </label>
         </div>
         <label>
-          Restricciones o mensaje
-          <textarea id="message" name="message" placeholder="Confirma el nombre y documento de identidad de los acompañantes. Indica si tienes alergias, dieta especial."></textarea>
+          Acompañantes o mensaje
+          <textarea id="message" name="message" placeholder="Confirma el nombre y documento de identidad de los acompañantes."></textarea>
         </label>
         <button class="button" type="submit">Enviar por WhatsApp</button>
         <p class="form-status" id="formStatus" aria-live="polite"></p>
@@ -1053,6 +1094,7 @@
         <article class="dress-card">
           <span>Hombres</span>
           <strong>Smoking</strong>
+          <small>Uniforme de Gala NRO 1 (Oficiales de Policía)</small>
         </article>
         <article class="reserved-colors">
           <div>
@@ -1153,7 +1195,7 @@
 
   <script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
   <script>
-    const whatsappNumber = "573043784692";
+    const whatsappNumber = "573107600082";
     const cloudName = "dkpin28c2";
     const uploadPreset = "BodaInvitados";
     const form = document.querySelector("#rsvpForm");
@@ -1161,7 +1203,7 @@
     const uploadPhotos = document.querySelector("#uploadPhotos");
     const photoStatus = document.querySelector("#photoStatus");
     const photoGallery = document.querySelector("#photoGallery");
-    const weddingDate = new Date("2026-07-25T16:00:00-05:00");
+    const weddingDate = new Date("2026-07-25T16:30:00-05:00");
     const countdownFields = {
       days: document.querySelector("#countDays"),
       hours: document.querySelector("#countHours"),
