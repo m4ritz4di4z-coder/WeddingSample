@@ -1,0 +1,1641 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paula Alejandra & Necton Lincon | Boda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #173025;
+      --muted: #637367;
+      --paper: #fbf8ef;
+      --card: #fffdf8;
+      --green: #234b39;
+      --green-soft: #dfe9d7;
+      --pistachio: #c8d89a;
+      --olive: #6f7f4f;
+      --gold: #c8a75b;
+      --gold-soft: #f4e6bd;
+      --mist: #eef3e8;
+      --line: rgba(35, 75, 57, 0.16);
+      --shadow: 0 24px 70px rgba(23, 48, 37, 0.14);
+      --leaves-art: url("leaves-romantic.jpg");
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(200, 167, 91, 0.18), transparent 28%),
+        linear-gradient(180deg, #fffdf8 0%, var(--paper) 48%, #eef3e8 100%);
+    }
+
+    a { color: inherit; }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 64px;
+      padding: 12px clamp(18px, 4vw, 54px);
+      border-bottom: 1px solid rgba(244, 230, 189, 0.28);
+      color: #fffdf8;
+      background: rgba(23, 48, 37, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.2rem, 4vw, 1.55rem);
+      line-height: 1.15;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 2vw, 22px);
+      font-size: 0.86rem;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 253, 248, 0.82);
+    }
+
+    .nav-links a:hover { color: var(--gold-soft); }
+
+    .hero {
+      position: relative;
+      min-height: calc(94vh - 64px);
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.82fr);
+      align-items: center;
+      isolation: isolate;
+      overflow: hidden;
+      background: var(--green);
+      color: #fffdf8;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        url("floral-hero-pistachio.jpg") center / cover no-repeat;
+      filter: saturate(0.96) contrast(1.02);
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(23, 48, 37, 0.9) 0%, rgba(35, 75, 57, 0.72) 42%, rgba(200, 167, 91, 0.16) 100%),
+        linear-gradient(180deg, rgba(255, 253, 248, 0.08), rgba(23, 48, 37, 0.08));
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 640px;
+      padding: clamp(44px, 7vw, 88px) clamp(24px, 4vw, 58px) clamp(44px, 7vw, 88px) clamp(44px, 8vw, 96px);
+      animation: fadeUp 900ms ease both;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      font-size: clamp(2.1rem, 4.4vw, 3.1rem);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold-soft);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 620px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3.6rem, 9.5vw, 8rem);
+      line-height: 0.82;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .amp {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 0.58em;
+      font-style: italic;
+    }
+
+    .hero-copy p:not(.eyebrow) {
+      max-width: 540px;
+      margin: 26px 0 0;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+      color: rgba(255, 253, 248, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--pistachio), #eef5d7);
+      box-shadow: 0 16px 36px rgba(111, 127, 79, 0.24);
+    }
+
+    .button.secondary {
+      color: #fffdf8;
+      border-color: rgba(244, 230, 189, 0.58);
+      background: rgba(255, 253, 248, 0.08);
+    }
+
+    .button svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      flex: 0 0 auto;
+    }
+
+    .map-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .map-title svg {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+    }
+
+    .hero-side {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: clamp(44px, 7vw, 88px) clamp(44px, 7vw, 86px) clamp(44px, 7vw, 88px) 0;
+    }
+
+    .hero-photo-card {
+      position: relative;
+      z-index: 1;
+      width: min(430px, 100%);
+      margin: 0;
+      padding: 14px;
+      border: 1px solid rgba(244, 230, 189, 0.54);
+      border-radius: 28px;
+      background: rgba(255, 253, 248, 0.18);
+      box-shadow: 0 24px 64px rgba(23, 48, 37, 0.24);
+      backdrop-filter: blur(10px);
+      animation: fadeUp 1000ms ease 120ms both;
+    }
+
+    .hero-photo-card::after {
+      content: "";
+      position: absolute;
+      inset: 20px -18px -18px 46%;
+      z-index: -1;
+      border-radius: 30px;
+      background: rgba(200, 167, 91, 0.2);
+      filter: blur(18px);
+    }
+
+    .hero-carousel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--mist);
+    }
+
+    .hero-carousel img {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      filter: saturate(1.06) contrast(1.02);
+      transform: scale(1.04);
+      transition: opacity 900ms ease, transform 1600ms ease;
+    }
+
+    .hero-carousel img.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .hero-carousel-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.42);
+      transition: width 250ms ease, background 250ms ease;
+    }
+
+    .hero-carousel-dots span.is-active {
+      width: 22px;
+      background: var(--pistachio);
+    }
+
+    .hero-photo-card figcaption {
+      padding: 12px 4px 2px;
+      color: rgba(255, 253, 248, 0.86);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.45rem;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .countdown {
+      position: relative;
+      z-index: 1;
+      width: min(360px, 100%);
+      padding: 28px 28px;
+      border: 1px solid rgba(244, 230, 189, 0.44);
+      border-radius: 22px;
+      background: rgba(23, 48, 37, 0.7);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(23, 48, 37, 0.26);
+      animation: floatCard 5.5s ease-in-out infinite;
+    }
+
+    .countdown > span {
+      display: block;
+      color: rgba(244, 230, 189, 0.82);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .countdown strong {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3.25rem, 5.2vw, 5.2rem);
+      font-weight: 400;
+      line-height: 0.95;
+      overflow-wrap: normal;
+    }
+
+    .countdown strong span {
+      display: block;
+    }
+
+    .countdown strong .countdown-date {
+      color: #fffdf8;
+      font-size: 0.95em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .countdown strong .countdown-time {
+      color: var(--gold-soft);
+      font-size: 0.56em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .countdown-live {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(244, 230, 189, 0.28);
+    }
+
+    .countdown-live div {
+      min-width: 0;
+    }
+
+    .countdown-live b {
+      display: block;
+      color: #fffdf8;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.1rem, 1.8vw, 1.55rem);
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .countdown-live small {
+      display: block;
+      margin-top: 6px;
+      color: rgba(255, 253, 248, 0.72);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    section {
+      padding: clamp(48px, 7vw, 86px) clamp(18px, 5vw, 64px);
+      scroll-margin-top: 92px;
+    }
+
+    .section-inner {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      animation: fadeUp 700ms ease both;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin: 0 0 28px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
+      line-height: 1;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      right: -72px;
+      bottom: -18px;
+      width: 86px;
+      height: 34px;
+      pointer-events: none;
+      background: var(--leaves-art) center / 230px auto no-repeat;
+      opacity: 0.28;
+      mix-blend-mode: multiply;
+      transform: rotate(-4deg);
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: -12px 0 30px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    #evento .section-inner,
+    #itinerario .section-inner,
+    #rsvp .section-inner,
+    #vestuario .section-inner,
+    #fotos .section-inner,
+    #regalos .section-inner,
+    #faq .section-inner {
+      padding: clamp(22px, 4vw, 38px);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: rgba(255, 253, 248, 0.88);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    #evento .section-inner::after,
+    #itinerario .section-inner::after,
+    #rsvp .section-inner::after,
+    #vestuario .section-inner::after,
+    #fotos .section-inner::after,
+    #regalos .section-inner::after,
+    #faq .section-inner::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -76px;
+      width: min(520px, 62vw);
+      height: 220px;
+      pointer-events: none;
+      background: var(--leaves-art) right center / cover no-repeat;
+      opacity: 0.1;
+      mix-blend-mode: multiply;
+      transform: rotate(2deg);
+    }
+
+    #evento .section-inner > *,
+    #itinerario .section-inner > *,
+    #rsvp .section-inner > *,
+    #vestuario .section-inner > *,
+    #fotos .section-inner > *,
+    #regalos .section-inner > *,
+    #faq .section-inner > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .event-card,
+    .gift-card,
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 16px 42px rgba(23, 48, 37, 0.1);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .event-card:hover,
+    .gift-card:hover,
+    .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 54px rgba(23, 48, 37, 0.14);
+    }
+
+    .event-card {
+      display: grid;
+      gap: 14px;
+      padding: 24px;
+    }
+
+    .couple-moment {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(18px, 4vw, 34px);
+      margin-top: 32px;
+      padding: clamp(20px, 4vw, 34px);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(200, 216, 154, 0.26), transparent 32%),
+        linear-gradient(135deg, #fffdf8 0%, var(--mist) 100%);
+      box-shadow: 0 18px 54px rgba(23, 48, 37, 0.12);
+    }
+
+    .couple-moment::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border-radius: 24px;
+      pointer-events: none;
+      background:
+        url("floral-hero-gd.jpg") center top / 100% auto no-repeat,
+        url("floral-hero-gd.jpg") center bottom / 100% auto no-repeat;
+      opacity: 0.18;
+      mix-blend-mode: multiply;
+      filter: sepia(0.28) hue-rotate(58deg) saturate(0.76) contrast(0.92);
+    }
+
+    .couple-moment > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .couple-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(12px, 2vw, 18px);
+      align-items: stretch;
+    }
+
+    .couple-frame {
+      position: relative;
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      background: var(--mist);
+    }
+
+    .couple-frame {
+      aspect-ratio: 1 / 1;
+    }
+
+    .couple-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.05) contrast(1.03);
+      transform: scale(1.01);
+      transition: transform 450ms ease, filter 450ms ease;
+    }
+
+    .couple-frame:hover img {
+      transform: scale(1.06);
+      filter: saturate(1.12) contrast(1.04);
+    }
+
+    .couple-frame span {
+      position: absolute;
+      right: 14px;
+      bottom: 12px;
+      z-index: 1;
+      color: rgba(244, 230, 189, 0.98);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3.5rem, 7vw, 6.8rem);
+      line-height: 0.85;
+      font-weight: 400;
+      text-shadow: 0 8px 24px rgba(23, 48, 37, 0.42);
+    }
+
+    .couple-moment p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      line-height: 1.75;
+    }
+
+    .couple-moment strong {
+      position: relative;
+      display: block;
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-style: italic;
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .event-card.map-card {
+      grid-column: 1 / -1;
+    }
+
+    .minimal-note {
+      max-width: 720px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .event-card h3,
+    .gift-card h3 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .event-card p,
+    .gift-card p,
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .map-qr {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--mist);
+    }
+
+    .map-qr img {
+      width: 180px;
+      height: 180px;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .map-qr strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .map-qr span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 10px;
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .map-link svg {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+    }
+
+    .map-link:hover {
+      text-decoration: underline;
+    }
+
+    .meta {
+      display: grid;
+      gap: 8px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .schedule {
+      background: var(--mist);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      max-width: 760px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(35, 75, 57, 0.14);
+    }
+
+    .timeline-item time {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 5px;
+      font-size: 1.05rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .rsvp-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .rsvp-note {
+      padding: 26px;
+      border-left: 4px solid var(--gold);
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--mist), #fffdf8);
+    }
+
+    .rsvp-note p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid rgba(35, 75, 57, 0.2);
+      border-radius: 14px;
+      font: inherit;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    form .button {
+      width: 100%;
+      min-height: 48px;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--pistachio), #eef5d7);
+      box-shadow: 0 12px 28px rgba(111, 127, 79, 0.24);
+    }
+
+    form .button:hover {
+      background: var(--pistachio);
+    }
+
+    .form-status {
+      min-height: 22px;
+      margin: 0;
+      color: var(--gold);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .dress-grid,
+    .gift-grid,
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .dress-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .dress-card {
+      min-height: 156px;
+      display: grid;
+      align-content: end;
+      gap: 8px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 16px 42px rgba(23, 48, 37, 0.1);
+    }
+
+    .dress-card span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .dress-card strong {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.55rem);
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .dress-card small {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    .reserved-colors {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--mist), var(--gold-soft));
+    }
+
+    .reserved-colors h3 {
+      margin: 0 0 6px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+    }
+
+    .reserved-colors p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .color-chips {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .color-chip {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid rgba(35, 75, 57, 0.18);
+      box-shadow: inset 0 0 0 6px rgba(255, 250, 243, 0.5);
+    }
+
+    .color-chip.white { background: #fffaf3; }
+    .color-chip.pistachio { background: #b7cf7a; }
+    .gift-card,
+    .faq-item {
+      padding: 22px;
+    }
+
+    .whatsapp-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 8px;
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .whatsapp-contact svg {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      color: #25d366;
+    }
+
+    .photo-section { background: transparent; }
+
+    .photo-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .photo-panel {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 16px 42px rgba(23, 48, 37, 0.1);
+    }
+
+    .photo-panel p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .photo-panel small {
+      display: block;
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .photo-panel .button.primary {
+      min-width: 220px;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--pistachio), #eef5d7);
+      box-shadow: 0 12px 28px rgba(111, 127, 79, 0.24);
+    }
+
+    .photo-panel .button.primary:hover {
+      background: var(--pistachio);
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .photo-gallery img,
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: var(--mist);
+    }
+
+    .photo-placeholder {
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .gift-card .button {
+      margin-top: 18px;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--pistachio), #eef5d7);
+      box-shadow: 0 12px 28px rgba(111, 127, 79, 0.24);
+    }
+
+    .gift-card .button:hover {
+      background: var(--pistachio);
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    footer {
+      padding: 34px 18px;
+      text-align: center;
+      color: rgba(255, 253, 248, 0.72);
+      background: var(--green);
+    }
+
+    footer strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fffaf3;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatCard {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes leafDrift {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(-1deg);
+      }
+      50% {
+        transform: translate3d(-12px, 8px, 0) rotate(2deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .site-nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 3px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: 560px;
+        padding-bottom: 24px;
+      }
+
+      .hero-side {
+        align-items: stretch;
+        padding: 0 clamp(28px, 6vw, 58px) clamp(34px, 7vw, 58px);
+      }
+
+      .hero-photo-card,
+      .countdown {
+        width: 100%;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .event-grid,
+      .rsvp-layout,
+      .photo-layout,
+      .couple-moment,
+      .dress-grid,
+      .gift-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .reserved-colors {
+        grid-template-columns: 1fr;
+      }
+
+      .color-chips {
+        justify-content: flex-start;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .map-qr {
+        grid-template-columns: 1fr;
+      }
+
+      .couple-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .couple-frame {
+        min-height: 0;
+        aspect-ratio: 1 / 1;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body { background: #fffaf3; }
+      .hero-copy { min-height: 500px; }
+      .hero-actions { flex-direction: column; }
+      .button { width: 100%; }
+      .timeline-item { grid-template-columns: 1fr; gap: 4px; }
+      .section-title::after { display: none; }
+
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Secciones del sitio">
+    <div class="brand">Paula Alejandra & Necton Lincon</div>
+    <div class="nav-links">
+      <a href="#evento">Evento</a>
+      <a href="#itinerario">Itinerario</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#vestuario">Dress code</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#regalos">Regalos</a>
+      <a href="#faq">Dudas</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">¡Nos casamos!</p>
+      <h1>Paula Alejandra <span class="amp">&amp;</span> Necton Lincon</h1>
+      <p>Nos encantaría celebrar este día contigo. Aquí encontrarás la información esencial de la boda.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#rsvp">Confirmar asistencia</a>
+        <a class="button secondary" href="#evento">Ver ubicación</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <figure class="hero-photo-card">
+        <div class="hero-carousel" aria-label="Fotos de Paula Alejandra y Necton Lincon">
+          <img class="is-active" src="https://m4ritz4di4z-coder.github.io/WeddingSample/N%26P-1.jpg" alt="Paula Alejandra y Necton Lincon">
+          <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9758.jpeg" alt="Paula Alejandra y Necton Lincon">
+          <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9747.jpeg" alt="Paula Alejandra y Necton Lincon">
+        </div>
+        <div class="hero-carousel-dots" aria-hidden="true">
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+        </div>
+        <figcaption>Paula &amp; Necton</figcaption>
+      </figure>
+      <div class="countdown">
+        <span>Reserva la fecha</span>
+        <strong><span class="countdown-date">25 de<br>julio</span><span class="countdown-time">4:30 p. m.</span></strong>
+        <div class="countdown-live" id="weddingCountdown" aria-label="Cuenta regresiva para la boda">
+          <div><b id="countDays">--</b><small>Días</small></div>
+          <div><b id="countHours">--</b><small>Horas</small></div>
+          <div><b id="countMinutes">--</b><small>Min</small></div>
+          <div><b id="countSeconds">--</b><small>Seg</small></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="evento">
+    <div class="section-inner">
+      <h2 class="section-title">Ceremonia y recepción</h2>
+      <p class="lead">25 de julio · 4:30 p. m. · Parroquia La Sagrada Familia. Recepción en la Escuela de Postgrados de la Policía Nacional - Cabaña de Generales.</p>
+      <div class="event-grid">
+        <article class="event-card map-card">
+          <h3>Detalles</h3>
+          <div class="meta">
+            <span>4:30 p. m.</span>
+            <span>Parroquia La Sagrada Familia</span>
+            <span>Recepción: Escuela de Postgrados de la Policía Nacional - Cabaña de Generales</span>
+            <span>Avenida Boyacá # 142 A - 55</span>
+          </div>
+          <p>Te recomendamos llegar con algunos minutos de anticipación.</p>
+          <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Escuela%20de%20Postgrados%20de%20la%20Polic%C3%ADa%20Nacional%20-%20Caba%C3%B1a%20de%20Generales%2C%20Avenida%20Boyac%C3%A1%20%23%20142%20A%20-%2055%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noreferrer">Abrir mapa</a>
+        </article>
+        <article class="event-card">
+          <h3 class="map-title">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="#4285F4" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/>
+              <path fill="#34A853" d="M5.7 11.93C7.29 16.64 12 22 12 22s2.14-2.37 4.05-5.35L5.7 11.93Z"/>
+              <path fill="#FBBC04" d="M18.36 6.08 13.4 11.04l2.65 5.61C17.69 14.1 19 11.18 19 9c0-1.05-.23-2.04-.64-2.92Z"/>
+              <path fill="#EA4335" d="M12 2C9.38 2 7.09 3.44 5.89 5.58l7.51 5.46 4.96-4.96C17.24 3.67 14.8 2 12 2Z"/>
+              <circle cx="12" cy="9" r="2.6" fill="#fff"/>
+            </svg>
+            Mapa de llegada
+          </h3>
+          <div class="map-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DEscuela%2520de%2520Postgrados%2520de%2520la%2520Polic%25C3%25ADa%2520Nacional%2520-%2520Caba%25C3%25B1a%2520de%2520Generales%252C%2520Avenida%2520Boyac%25C3%25A1%2520%2523%2520142%2520A%2520-%252055%252C%2520Bogot%25C3%25A1%252C%2520Colombia" alt="QR del mapa de llegada">
+            <div>
+              <strong>Escanea para abrir la ubicación</strong>
+              <span>Escuela de Postgrados de la Policía Nacional - Cabaña de Generales, Avenida Boyacá # 142 A - 55.</span>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Escuela%20de%20Postgrados%20de%20la%20Polic%C3%ADa%20Nacional%20-%20Caba%C3%B1a%20de%20Generales%2C%20Avenida%20Boyac%C3%A1%20%23%20142%20A%20-%2055%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="#4285F4" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/>
+                  <path fill="#34A853" d="M5.7 11.93C7.29 16.64 12 22 12 22s2.14-2.37 4.05-5.35L5.7 11.93Z"/>
+                  <path fill="#FBBC04" d="M18.36 6.08 13.4 11.04l2.65 5.61C17.69 14.1 19 11.18 19 9c0-1.05-.23-2.04-.64-2.92Z"/>
+                  <path fill="#EA4335" d="M12 2C9.38 2 7.09 3.44 5.89 5.58l7.51 5.46 4.96-4.96C17.24 3.67 14.8 2 12 2Z"/>
+                  <circle cx="12" cy="9" r="2.6" fill="#fff"/>
+                </svg>
+                Abrir dirección en Google Maps
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <article class="couple-moment">
+        <p><strong>Celebremos juntos nuestro amor...</strong></p>
+        <div class="couple-gallery" aria-label="Fotos de Paula Alejandra y Necton Lincon">
+          <figure class="couple-frame">
+            <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/N%26P-1.jpg" alt="Paula Alejandra y Necton Lincon">
+            <span>25</span>
+          </figure>
+          <figure class="couple-frame">
+            <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9758.jpeg" alt="Paula Alejandra y Necton Lincon">
+            <span>07</span>
+          </figure>
+          <figure class="couple-frame">
+            <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9747.jpeg" alt="Paula Alejandra y Necton Lincon">
+            <span>26</span>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="itinerario" class="schedule">
+    <div class="section-inner">
+      <h2 class="section-title">Itinerario</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <time>4:30 p. m.</time>
+          <div>
+            <h3>Llegada de invitados</h3>
+            <p>Recepción, saludo y acomodación.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time>5:00 p. m.</time>
+          <div>
+            <h3>Ceremonia</h3>
+            <p>Parroquia La Sagrada Familia.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time>6:00 p. m.</time>
+          <div>
+            <h3>Cóctel</h3>
+            <p>Fotos, bebidas y pasabocas.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time>7:00 p. m.</time>
+          <div>
+            <h3>Cena y brindis</h3>
+            <p>Compartimos la mesa y las palabras de celebración.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time>8:00 p. m.</time>
+          <div>
+            <h3>Fiesta</h3>
+            <p>Música, baile y alegría hasta el cierre.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="section-inner rsvp-layout">
+      <div>
+        <h2 class="section-title">Confirma tu asistencia</h2>
+        <div class="rsvp-note">
+          <p>Confirma antes del 11 de junio.</p>
+        </div>
+      </div>
+      <form id="rsvpForm">
+        <label>
+          Nombre completo
+          <input id="guestName" name="guestName" autocomplete="name" required>
+        </label>
+        <div class="form-row">
+          <label>
+            Asistencia
+            <select id="attendance" name="attendance" required>
+              <option value="">Seleccionar</option>
+              <option>Sí, asistiré</option>
+              <option>No podré asistir</option>
+            </select>
+          </label>
+          <label>
+            Número de personas
+            <input id="guests" name="guests" type="number" min="1" max="6" value="1" required>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>
+            Documento de identidad
+            <input id="documentId" name="documentId" inputmode="numeric" autocomplete="off" required>
+          </label>
+          <label>
+            Placa del vehículo
+            <input id="vehiclePlate" name="vehiclePlate" autocomplete="off" placeholder="Solo si llevan vehículo">
+          </label>
+        </div>
+        <label>
+          Acompañantes o mensaje
+          <textarea id="message" name="message" placeholder="Confirma el nombre y documento de identidad de los acompañantes."></textarea>
+        </label>
+        <button class="button" type="submit">Enviar por WhatsApp</button>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="vestuario" class="schedule">
+    <div class="section-inner">
+      <h2 class="section-title">Código de vestuario</h2>
+      <p class="lead">Queremos que todos se sientan elegantes y cómodos para celebrar con nosotros.</p>
+      <div class="dress-grid" aria-label="Código de vestuario">
+        <article class="dress-card">
+          <span>Mujeres</span>
+          <strong>Gala</strong>
+        </article>
+        <article class="dress-card">
+          <span>Hombres</span>
+          <strong>Smoking</strong>
+          <small>Uniforme de Gala NRO 1 (Oficiales de Policía)</small>
+        </article>
+        <article class="reserved-colors">
+          <div>
+            <h3>Colores reservados</h3>
+            <p>Agradecemos evitar blanco y verde pistacho para reservarlos a los novios y detalles de la celebración.</p>
+          </div>
+          <div class="color-chips" aria-label="Blanco y verde pistacho">
+            <span class="color-chip white" title="Blanco"></span>
+            <span class="color-chip pistachio" title="Verde pistacho"></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="fotos" class="photo-section">
+    <div class="section-inner photo-layout">
+      <div>
+        <h2 class="section-title">Fotos de la boda</h2>
+      <p class="lead">Comparte tus fotos del evento. Las publicaremos en la galería después de revisarlas.</p>
+        <div class="photo-panel">
+          <p>Sube tus recuerdos favoritos. Solo mostraremos las fotos aprobadas.</p>
+          <button class="button primary" id="uploadPhotos" type="button">Subir fotos</button>
+          <small id="photoStatus" aria-live="polite">Puedes subir varias fotos desde tu celular o computadora.</small>
+        </div>
+      </div>
+
+      <div class="photo-gallery" id="photoGallery" aria-label="Fotos subidas por invitados">
+        <div class="photo-placeholder">Las fotos subidas aparecerán aquí durante tu visita.</div>
+        <div class="photo-placeholder">También quedarán guardadas en Cloudinary.</div>
+        <div class="photo-placeholder">Después puedes elegir cuáles publicar.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="regalos">
+    <div class="section-inner">
+      <h2 class="section-title">Mesa de regalos</h2>
+      <p class="lead">Tu presencia es nuestro regalo más importante. Si deseas tener un detalle adicional, tendremos lluvia de sobres.</p>
+      <div class="gift-grid">
+        <article class="gift-card">
+          <h3>Lluvia de sobres</h3>
+          <p>Tendremos un espacio discreto para quienes deseen compartir un detalle con los novios.</p>
+        </article>
+        <article class="gift-card">
+          <h3>Alimentación</h3>
+          <p>Por favor informa si sufres de alergias o tienes alguna restricción alimentaria.</p>
+          <a class="button" href="#rsvp">Informar alergias</a>
+        </article>
+        <article class="gift-card">
+          <h3>Confirmación</h3>
+          <p>Confirma tu asistencia hasta el 11 de junio para ayudarnos con la organización.</p>
+          <a class="button" href="#rsvp">Confirmar asistencia</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="schedule">
+    <div class="section-inner">
+      <h2 class="section-title">Dudas frecuentes</h2>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>¿Puedo llevar acompañante?</h3>
+          <p>Confirma según el número de cupos indicado en tu invitación.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Dónde es la recepción?</h3>
+          <p>
+            En la Escuela de Postgrados de la Policía Nacional - Cabaña de Generales, Avenida Boyacá # 142 A - 55.
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Escuela%20de%20Postgrados%20de%20la%20Polic%C3%ADa%20Nacional%20-%20Caba%C3%B1a%20de%20Generales%2C%20Avenida%20Boyac%C3%A1%20%23%20142%20A%20-%2055%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="#4285F4" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/>
+                <path fill="#34A853" d="M5.7 11.93C7.29 16.64 12 22 12 22s2.14-2.37 4.05-5.35L5.7 11.93Z"/>
+                <path fill="#FBBC04" d="M18.36 6.08 13.4 11.04l2.65 5.61C17.69 14.1 19 11.18 19 9c0-1.05-.23-2.04-.64-2.92Z"/>
+                <path fill="#EA4335" d="M12 2C9.38 2 7.09 3.44 5.89 5.58l7.51 5.46 4.96-4.96C17.24 3.67 14.8 2 12 2Z"/>
+                <circle cx="12" cy="9" r="2.6" fill="#fff"/>
+              </svg>
+              Ver en Google Maps
+            </a>
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Pueden asistir niños?</h3>
+          <p>La celebración es solo para adultos.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Hasta cuándo confirmo?</h3>
+          <p>Por favor confirma tu asistencia hasta el 11 de junio.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Otras dudas?</h3>
+          <p>
+            <a class="whatsapp-contact" href="https://wa.me/573107600082" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M16.02 3.2c-7.02 0-12.72 5.63-12.72 12.57 0 2.38.68 4.62 1.86 6.53L3.2 28.8l6.7-1.91a12.84 12.84 0 0 0 6.12 1.55c7.02 0 12.72-5.63 12.72-12.57S23.04 3.2 16.02 3.2Zm0 22.96c-2.03 0-3.91-.58-5.51-1.58l-.39-.24-3.97 1.13 1.16-3.82-.26-.4a10.14 10.14 0 0 1-1.48-5.48c0-5.68 4.69-10.3 10.45-10.3s10.45 4.62 10.45 10.3-4.69 10.39-10.45 10.39Zm5.73-7.71c-.31-.15-1.84-.9-2.13-1-.29-.11-.5-.15-.71.15-.21.31-.82 1-.99 1.2-.18.21-.36.23-.67.08-.31-.15-1.31-.48-2.5-1.52-.92-.81-1.55-1.82-1.73-2.13-.18-.31-.02-.48.13-.63.14-.14.31-.36.47-.54.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.54-.08-.15-.71-1.69-.98-2.31-.26-.6-.52-.52-.71-.53h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.6s1.13 3.02 1.29 3.23c.16.21 2.23 3.37 5.4 4.72.76.33 1.35.52 1.81.66.76.24 1.45.21 2 .13.61-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.6-.36Z"/>
+              </svg>
+              <span>¡Escríbenos con confianza! 3107600082</span>
+            </a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>Paula Alejandra & Necton Lincon</strong>
+    Gracias por ser parte de nuestra historia.
+  </footer>
+
+  <script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
+  <script>
+    const whatsappNumber = "573107600082";
+    const cloudName = "dkpin28c2";
+    const uploadPreset = "BodaInvitados";
+    const form = document.querySelector("#rsvpForm");
+    const status = document.querySelector("#formStatus");
+    const uploadPhotos = document.querySelector("#uploadPhotos");
+    const photoStatus = document.querySelector("#photoStatus");
+    const photoGallery = document.querySelector("#photoGallery");
+    const heroSlides = Array.from(document.querySelectorAll(".hero-carousel img"));
+    const heroDots = Array.from(document.querySelectorAll(".hero-carousel-dots span"));
+    const weddingDate = new Date("2026-07-25T16:30:00-05:00");
+    const countdownFields = {
+      days: document.querySelector("#countDays"),
+      hours: document.querySelector("#countHours"),
+      minutes: document.querySelector("#countMinutes"),
+      seconds: document.querySelector("#countSeconds")
+    };
+
+    const updateCountdown = () => {
+      if (!countdownFields.days) return;
+
+      const diff = weddingDate.getTime() - Date.now();
+      if (diff <= 0) {
+        countdownFields.days.textContent = "Hoy";
+        countdownFields.hours.textContent = "00";
+        countdownFields.minutes.textContent = "00";
+        countdownFields.seconds.textContent = "00";
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      countdownFields.days.textContent = String(days);
+      countdownFields.hours.textContent = String(hours).padStart(2, "0");
+      countdownFields.minutes.textContent = String(minutes).padStart(2, "0");
+      countdownFields.seconds.textContent = String(seconds).padStart(2, "0");
+    };
+
+    const clearGalleryPlaceholders = () => {
+      photoGallery.querySelectorAll(".photo-placeholder").forEach((item) => item.remove());
+    };
+
+    const addPhotoToGallery = (url, prepend = false) => {
+      const image = document.createElement("img");
+      image.src = url;
+      image.alt = "Foto de la boda";
+      image.loading = "lazy";
+
+      clearGalleryPlaceholders();
+
+      if (prepend) {
+        photoGallery.prepend(image);
+      } else {
+        photoGallery.append(image);
+      }
+    };
+
+    const loadApprovedGallery = async () => {
+      if (!photoGallery) return;
+
+      try {
+        const response = await fetch("gallery.json", { cache: "no-store" });
+        if (!response.ok) return;
+
+        const photos = await response.json();
+        if (!Array.isArray(photos) || photos.length === 0) return;
+
+        photos
+          .map((item) => typeof item === "string" ? item : item.url)
+          .filter(Boolean)
+          .forEach((url) => addPhotoToGallery(url));
+      } catch (error) {
+        photoStatus.textContent = "La galería aprobada se cargará cuando el sitio esté publicado.";
+      }
+    };
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = document.querySelector("#guestName").value.trim();
+      const attendance = document.querySelector("#attendance").value;
+      const guests = document.querySelector("#guests").value;
+      const documentId = document.querySelector("#documentId").value.trim();
+      const vehiclePlate = document.querySelector("#vehiclePlate").value.trim();
+      const message = document.querySelector("#message").value.trim();
+
+      if (!name || !attendance || !guests || !documentId) {
+        status.textContent = "Completa los campos principales para enviar tu confirmación.";
+        return;
+      }
+
+      const text = [
+        "Hola, quiero confirmar mi asistencia a la boda de Paula Alejandra y Necton Lincon.",
+        `Nombre: ${name}`,
+        `Asistencia: ${attendance}`,
+        `Personas: ${guests}`,
+        `Documento de identidad: ${documentId}`,
+        vehiclePlate ? `Placa del vehículo: ${vehiclePlate.toUpperCase()}` : "",
+        message ? `Mensaje: ${message}` : ""
+      ].filter(Boolean).join("\\n");
+
+      status.textContent = "Se abrirá WhatsApp con tu confirmación lista para enviar.";
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    });
+
+    if (uploadPhotos) {
+      uploadPhotos.addEventListener("click", () => {
+        if (!window.cloudinary) {
+          photoStatus.textContent = "No se pudo cargar el widget de Cloudinary. Revisa tu conexión e intenta de nuevo.";
+          return;
+        }
+
+        const widget = cloudinary.createUploadWidget({
+          cloudName,
+          uploadPreset,
+          sources: ["local", "camera"],
+          multiple: true,
+          folder: "FotosInvitados",
+          resourceType: "image",
+          clientAllowedFormats: ["jpg", "jpeg", "png", "webp"],
+          maxFileSize: 10485760,
+          text: {
+            es: {
+              "queue.title": "Fotos para Paula Alejandra y Necton Lincon",
+              "local.browse": "Elegir fotos"
+            }
+          }
+        }, (error, result) => {
+          if (error) {
+            photoStatus.textContent = "No se pudo subir la foto. Inténtalo otra vez.";
+            return;
+          }
+
+          if (result && result.event === "success") {
+            addPhotoToGallery(result.info.secure_url, true);
+            photoStatus.textContent = "Foto subida correctamente. Gracias por compartir este recuerdo.";
+          }
+        });
+
+        widget.open();
+      });
+    }
+
+    loadApprovedGallery();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    if (heroSlides.length > 1) {
+      let activeHeroSlide = 0;
+      setInterval(() => {
+        heroSlides[activeHeroSlide].classList.remove("is-active");
+        heroDots[activeHeroSlide]?.classList.remove("is-active");
+        activeHeroSlide = (activeHeroSlide + 1) % heroSlides.length;
+        heroSlides[activeHeroSlide].classList.add("is-active");
+        heroDots[activeHeroSlide]?.classList.add("is-active");
+      }, 4200);
+    }
+  </script>
+</body>
+</html>
+
