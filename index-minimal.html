@@ -487,11 +487,19 @@
     }
 
     .map-link {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       margin-top: 10px;
       color: var(--clay);
       font-weight: 700;
       text-decoration: none;
+    }
+
+    .map-link svg {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
     }
 
     .map-link:hover {
@@ -967,7 +975,16 @@
             <div>
               <strong>Escanea para abrir la ubicación</strong>
               <span>Escuela de Postgrados de la Policía Nacional - Cabaña de Generales, Avenida Boyacá # 142 A - 55.</span>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Escuela%20de%20Postgrados%20de%20la%20Polic%C3%ADa%20Nacional%20-%20Caba%C3%B1a%20de%20Generales%2C%20Avenida%20Boyac%C3%A1%20%23%20142%20A%20-%2055%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noreferrer">Abrir dirección en Google Maps</a>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Escuela%20de%20Postgrados%20de%20la%20Polic%C3%ADa%20Nacional%20-%20Caba%C3%B1a%20de%20Generales%2C%20Avenida%20Boyac%C3%A1%20%23%20142%20A%20-%2055%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="#4285F4" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/>
+                  <path fill="#34A853" d="M5.7 11.93C7.29 16.64 12 22 12 22s2.14-2.37 4.05-5.35L5.7 11.93Z"/>
+                  <path fill="#FBBC04" d="M18.36 6.08 13.4 11.04l2.65 5.61C17.69 14.1 19 11.18 19 9c0-1.05-.23-2.04-.64-2.92Z"/>
+                  <path fill="#EA4335" d="M12 2C9.38 2 7.09 3.44 5.89 5.58l7.51 5.46 4.96-4.96C17.24 3.67 14.8 2 12 2Z"/>
+                  <circle cx="12" cy="9" r="2.6" fill="#fff"/>
+                </svg>
+                Abrir dirección en Google Maps
+              </a>
             </div>
           </div>
         </article>
@@ -1163,7 +1180,19 @@
         </article>
         <article class="faq-item">
           <h3>¿Dónde es la recepción?</h3>
-          <p>En la Escuela de Postgrados de la Policía Nacional, Avenida Boyacá # 142 A - 55.</p>
+          <p>
+            En la Escuela de Postgrados de la Policía Nacional - Cabaña de Generales, Avenida Boyacá # 142 A - 55.
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Escuela%20de%20Postgrados%20de%20la%20Polic%C3%ADa%20Nacional%20-%20Caba%C3%B1a%20de%20Generales%2C%20Avenida%20Boyac%C3%A1%20%23%20142%20A%20-%2055%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="#4285F4" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/>
+                <path fill="#34A853" d="M5.7 11.93C7.29 16.64 12 22 12 22s2.14-2.37 4.05-5.35L5.7 11.93Z"/>
+                <path fill="#FBBC04" d="M18.36 6.08 13.4 11.04l2.65 5.61C17.69 14.1 19 11.18 19 9c0-1.05-.23-2.04-.64-2.92Z"/>
+                <path fill="#EA4335" d="M12 2C9.38 2 7.09 3.44 5.89 5.58l7.51 5.46 4.96-4.96C17.24 3.67 14.8 2 12 2Z"/>
+                <circle cx="12" cy="9" r="2.6" fill="#fff"/>
+              </svg>
+              Ver en Google Maps
+            </a>
+          </p>
         </article>
         <article class="faq-item">
           <h3>¿Pueden asistir niños?</h3>
