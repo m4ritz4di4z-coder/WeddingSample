@@ -22,7 +22,6 @@
       --mist: #eef3e8;
       --line: rgba(35, 75, 57, 0.16);
       --shadow: 0 24px 70px rgba(23, 48, 37, 0.14);
-      --leaves-art: url("leaves-romantic.jpg");
     }
 
     * { box-sizing: border-box; }
@@ -91,15 +90,41 @@
       color: #fffdf8;
     }
 
-    .hero::before {
-      content: "";
+    .hero-bg-carousel {
       position: absolute;
       inset: 0;
       z-index: -2;
-      background:
-        url("floral-hero-pistachio.jpg") center / cover no-repeat;
-      filter: saturate(0.96) contrast(1.02);
+      overflow: hidden;
+    }
+
+    .hero-bg-carousel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      filter: saturate(1.04) contrast(1.03);
       transform: scale(1.02);
+      transition: opacity 1100ms ease, transform 4200ms ease;
+    }
+
+    .hero-bg-carousel img.is-active {
+      opacity: 1;
+      transform: scale(0.96);
+    }
+
+    .hero-bg-carousel img:nth-child(1) {
+      object-position: 58% center;
+    }
+
+    .hero-bg-carousel img:nth-child(2) {
+      object-position: center 44%;
+    }
+
+    .hero-bg-carousel img:nth-child(3) {
+      object-position: 62% center;
     }
 
     .hero::after {
@@ -108,8 +133,8 @@
       inset: 0;
       z-index: -1;
       background:
-        linear-gradient(90deg, rgba(23, 48, 37, 0.9) 0%, rgba(35, 75, 57, 0.72) 42%, rgba(200, 167, 91, 0.16) 100%),
-        linear-gradient(180deg, rgba(255, 253, 248, 0.08), rgba(23, 48, 37, 0.08));
+        linear-gradient(90deg, rgba(23, 48, 37, 0.92) 0%, rgba(35, 75, 57, 0.72) 48%, rgba(23, 48, 37, 0.22) 100%),
+        linear-gradient(180deg, rgba(244, 230, 189, 0.16), rgba(23, 48, 37, 0.22));
     }
 
     .hero-copy {
@@ -405,20 +430,6 @@
       color: var(--green);
     }
 
-    .section-title::after {
-      content: "";
-      position: absolute;
-      right: -72px;
-      bottom: -18px;
-      width: 86px;
-      height: 34px;
-      pointer-events: none;
-      background: var(--leaves-art) center / 230px auto no-repeat;
-      opacity: 0.28;
-      mix-blend-mode: multiply;
-      transform: rotate(-4deg);
-    }
-
     .lead {
       max-width: 760px;
       margin: -12px 0 30px;
@@ -448,26 +459,6 @@
       background: rgba(255, 253, 248, 0.88);
       box-shadow: var(--shadow);
       backdrop-filter: blur(8px);
-    }
-
-    #evento .section-inner::after,
-    #itinerario .section-inner::after,
-    #rsvp .section-inner::after,
-    #vestuario .section-inner::after,
-    #fotos .section-inner::after,
-    #regalos .section-inner::after,
-    #faq .section-inner::after {
-      content: "";
-      position: absolute;
-      right: -120px;
-      top: -76px;
-      width: min(520px, 62vw);
-      height: 220px;
-      pointer-events: none;
-      background: var(--leaves-art) right center / cover no-repeat;
-      opacity: 0.1;
-      mix-blend-mode: multiply;
-      transform: rotate(2deg);
     }
 
     #evento .section-inner > *,
@@ -1040,15 +1031,6 @@
       }
     }
 
-    @keyframes leafDrift {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(-1deg);
-      }
-      50% {
-        transform: translate3d(-12px, 8px, 0) rotate(2deg);
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1138,7 +1120,6 @@
       .hero-actions { flex-direction: column; }
       .button { width: 100%; }
       .timeline-item { grid-template-columns: 1fr; gap: 4px; }
-      .section-title::after { display: none; }
 
     }
   </style>
@@ -1158,6 +1139,11 @@
   </nav>
 
   <header class="hero">
+    <div class="hero-bg-carousel" aria-hidden="true">
+      <img class="is-active" src="https://m4ritz4di4z-coder.github.io/WeddingSample/N%26P-1.jpg" alt="">
+      <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9758.jpeg" alt="">
+      <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9747.jpeg" alt="">
+    </div>
     <div class="hero-copy">
       <p class="eyebrow">¡Nos casamos!</p>
       <h1>Paula Alejandra <span class="amp">&amp;</span> Necton Lincon</h1>
@@ -1168,19 +1154,6 @@
       </div>
     </div>
     <div class="hero-side">
-      <figure class="hero-photo-card">
-        <div class="hero-carousel" aria-label="Fotos de Paula Alejandra y Necton Lincon">
-          <img class="is-active" src="https://m4ritz4di4z-coder.github.io/WeddingSample/N%26P-1.jpg" alt="Paula Alejandra y Necton Lincon">
-          <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9758.jpeg" alt="Paula Alejandra y Necton Lincon">
-          <img src="https://m4ritz4di4z-coder.github.io/WeddingSample/DSC_9747.jpeg" alt="Paula Alejandra y Necton Lincon">
-        </div>
-        <div class="hero-carousel-dots" aria-hidden="true">
-          <span class="is-active"></span>
-          <span></span>
-          <span></span>
-        </div>
-        <figcaption>Paula &amp; Necton</figcaption>
-      </figure>
       <div class="countdown">
         <span>Reserva la fecha</span>
         <strong><span class="countdown-date">25 de<br>julio</span><span class="countdown-time">4:30 p. m.</span></strong>
@@ -1483,8 +1456,7 @@
     const uploadPhotos = document.querySelector("#uploadPhotos");
     const photoStatus = document.querySelector("#photoStatus");
     const photoGallery = document.querySelector("#photoGallery");
-    const heroSlides = Array.from(document.querySelectorAll(".hero-carousel img"));
-    const heroDots = Array.from(document.querySelectorAll(".hero-carousel-dots span"));
+    const heroSlides = Array.from(document.querySelectorAll(".hero-bg-carousel img"));
     const weddingDate = new Date("2026-07-25T16:30:00-05:00");
     const countdownFields = {
       days: document.querySelector("#countDays"),
@@ -1629,10 +1601,8 @@
       let activeHeroSlide = 0;
       setInterval(() => {
         heroSlides[activeHeroSlide].classList.remove("is-active");
-        heroDots[activeHeroSlide]?.classList.remove("is-active");
         activeHeroSlide = (activeHeroSlide + 1) % heroSlides.length;
         heroSlides[activeHeroSlide].classList.add("is-active");
-        heroDots[activeHeroSlide]?.classList.add("is-active");
       }, 4200);
     }
   </script>
