@@ -1362,7 +1362,7 @@
       <div>
         <h2 class="section-title">Confirma tu asistencia</h2>
         <div class="rsvp-note">
-          <p>Confirma antes del 11 de junio.</p>
+          <p>Confirma antes del 15 de junio.</p>
         </div>
       </div>
       <form id="rsvpForm">
@@ -1378,10 +1378,6 @@
               <option>Sí, asistiré</option>
               <option>No podré asistir</option>
             </select>
-          </label>
-          <label>
-            Número de personas
-            <input id="guests" name="guests" type="number" min="1" max="6" value="1" required>
           </label>
         </div>
         <div class="form-row">
@@ -1421,7 +1417,7 @@
         <article class="reserved-colors">
           <div>
             <h3>Colores reservados</h3>
-            <p>Agradecemos evitar blanco y verde pistacho para reservarlos a los novios y detalles de la celebración.</p>
+            <p>No usar colores blanco y verde pistacho.</p>
           </div>
           <div class="color-chips" aria-label="Blanco y verde pistacho">
             <span class="color-chip white" title="Blanco"></span>
@@ -1458,7 +1454,6 @@
       <div class="gift-grid">
         <article class="gift-card">
           <h3>Lluvia de sobres</h3>
-          <p>Tendremos un espacio discreto para quienes deseen compartir un detalle con los novios.</p>
         </article>
         <article class="gift-card">
           <h3>Alimentación</h3>
@@ -1467,7 +1462,7 @@
         </article>
         <article class="gift-card">
           <h3>Confirmación</h3>
-          <p>Confirma tu asistencia hasta el 11 de junio para ayudarnos con la organización.</p>
+          <p>Confirma tu asistencia hasta el 15 de junio para ayudarnos con la organización.</p>
           <a class="button" href="#rsvp">Confirmar asistencia</a>
         </article>
       </div>
@@ -1504,7 +1499,7 @@
         </article>
         <article class="faq-item">
           <h3>¿Hasta cuándo confirmo?</h3>
-          <p>Por favor confirma tu asistencia hasta el 11 de junio.</p>
+          <p>Por favor confirma tu asistencia hasta el 15 de junio.</p>
         </article>
         <article class="faq-item">
           <h3>¿Otras dudas?</h3>
@@ -1611,12 +1606,11 @@
       event.preventDefault();
       const name = document.querySelector("#guestName").value.trim();
       const attendance = document.querySelector("#attendance").value;
-      const guests = document.querySelector("#guests").value;
       const documentId = document.querySelector("#documentId").value.trim();
       const vehiclePlate = document.querySelector("#vehiclePlate").value.trim();
       const message = document.querySelector("#message").value.trim();
 
-      if (!name || !attendance || !guests || !documentId) {
+      if (!name || !attendance || !documentId) {
         status.textContent = "Completa los campos principales para enviar tu confirmación.";
         return;
       }
@@ -1625,7 +1619,6 @@
         "Hola, quiero confirmar mi asistencia a la boda de Paula Alejandra y Necton Lincon.",
         `Nombre: ${name}`,
         `Asistencia: ${attendance}`,
-        `Personas: ${guests}`,
         `Documento de identidad: ${documentId}`,
         vehiclePlate ? `Placa del vehículo: ${vehiclePlate.toUpperCase()}` : "",
         message ? `Mensaje: ${message}` : ""
